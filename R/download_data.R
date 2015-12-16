@@ -30,4 +30,9 @@ data_fin_riigihangete_register <- function() {
     return(df)
 }
 
-
+data_strukt_toetused <- function() {
+    require(RCurl)
+    csv <- getURL("https://opendata.riik.ee/dataset/0b8b73d3-ba64-482c-a873-a0b89e745863/resource/61b188b8-eacc-4ce2-9a53-72b7320be4eb/download/toetusesaajad80715.csv")
+    df <- read.csv(textConnection(csv),sep = ";")
+    return(df)
+}
