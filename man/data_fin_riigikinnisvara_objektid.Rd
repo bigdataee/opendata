@@ -2,10 +2,14 @@
 % Please edit documentation in R/download_data.R
 \name{data_fin_riigikinnisvara_objektid}
 \alias{data_fin_riigikinnisvara_objektid}
+\title{Riigi kinnisvaraobjektid}
 \usage{
 data_fin_riigikinnisvara_objektid()
 }
 \description{
 Opendata.ee riigi kinnisvaraobjektide nimekiri
+}
+\details{
+Riigi kinnisvaraobjektid
 }
 

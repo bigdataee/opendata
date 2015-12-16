@@ -2,10 +2,14 @@
 % Please edit documentation in R/download_data.R
 \name{data_fin_struktuuritoetus}
 \alias{data_fin_struktuuritoetus}
+\title{Struktuuritoetuste info}
 \usage{
 data_fin_struktuuritoetus()
 }
 \description{
 Opendata.ee riigi struktuuritoetuste nimekiri
+}
+\details{
+Stuktuuritoetused
 }
 

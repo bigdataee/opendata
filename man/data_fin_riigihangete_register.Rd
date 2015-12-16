@@ -2,10 +2,14 @@
 % Please edit documentation in R/download_data.R
 \name{data_fin_riigihangete_register}
 \alias{data_fin_riigihangete_register}
+\title{Riigihangete registri info}
 \usage{
 data_fin_riigihangete_register()
 }
 \description{
 Opendata.ee riigi riigihangete registri info
+}
+\details{
+Riigihangete registri info
 }
 
