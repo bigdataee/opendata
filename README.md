@@ -12,12 +12,15 @@ install_github("laurii/opendata.ee")
 ## Näide
 
 ```
-df2 <- data_fin_struktuuritoetus()
+library(opendata.ee)
+library(ggplot2)
+
+df <- data_fin_struktuuritoetus()
 
 View(df2)
 
 # Struktuuritoetuste saajate arv jur. staatuse kaupa
-p <- ggplot(df2, aes(factor(toetuse_saaja_juriidiline_vorm)))
+p <- ggplot(df, aes(factor(toetuse_saaja_juriidiline_vorm)))
 p + geom_bar() + coord_flip() +
     xlab("Juriidiline vorm") +
     ylab("Arv") +
