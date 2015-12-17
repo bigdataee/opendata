@@ -6,6 +6,9 @@
 \usage{
 data_fin_riigihangete_register()
 }
+\arguments{
+\item{none}{}
+}
 \description{
 Opendata.ee riigi riigihangete registri info
 }

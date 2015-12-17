@@ -6,5 +6,7 @@ Date: 2015-12-16
 Author: Lauri Ilison
 Maintainer: Lauri Ilison <lauri@soliton.ee>
 Description: Package to download data from opendata.ee portal
+Depends: R (>= 3.1.0)
+Imports: RCurl, rjson
 License: TBD
 LazyData: TRUE

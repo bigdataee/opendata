@@ -28,6 +28,7 @@ data_fin_struktuuritoetus <- function() {
 #' @title Riigihangete registri info
 #' @name data_fin_riigihangete_register
 #' @description Opendata.ee riigi riigihangete registri info
+#' @param none
 data_fin_riigihangete_register <- function() {
     require(RCurl)
     print("downloading data...")
@@ -36,4 +37,20 @@ data_fin_riigihangete_register <- function() {
     print("downloading done")
     return(df)
 }
+
+#' Riigiteenuste registri info
+#' @title Riigiteenuste registri info
+#' @name data_riigiteenused
+#' @description Riigiteenuste andmebaas
+#' @param none
+data_riigiteenused <- function(){
+    require(rjson)
+    df <- jsonlite::fromJSON("https://www.riigiteenused.ee/api/et/all")
+    return(df)
+}
+
+
+
+
+
 
