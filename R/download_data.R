@@ -54,7 +54,7 @@ data_riigiteenused <- function(){
 #' @name data_ppa_piiripunktid
 #' @description Riigi piiripunktide kontaktid koos piiriületamise võimaluse ja piirangutega.
 #' @param none
-#data_ppa_piiripunktid <- function() {
+data_ppa_piiripunktid <- function() {
   require(RCurl)
   print("Downloading data...")
   csv_text <- getURL("https://www.politsei.ee/dotAsset/528868.csv")
@@ -62,7 +62,7 @@ data_riigiteenused <- function(){
   df <- read.csv(textConnection(csv_text),sep = ";")
   print("Data downloaded.")
   return(df)
-#}
+}
 
 
 
