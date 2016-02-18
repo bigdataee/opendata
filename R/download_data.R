@@ -49,6 +49,20 @@ data_riigiteenused <- function(){
     return(df)
 }
 
+#' Eesti Vabariigi piiripunktid
+#' @title Eesti Vabariigi piiripunktid
+#' @name data_ppa_piiripunktid
+#' @description Riigi piiripunktide kontaktid koos piiriületamise võimaluse ja piirangutega.
+#' @param none
+#data_ppa_piiripunktid <- function() {
+  require(RCurl)
+  print("Downloading data...")
+  csv_text <- getURL("https://www.politsei.ee/dotAsset/528868.csv")
+  csv_text <- gsub("\u0096", "-", csv_text) # Replace Unicode dashes
+  df <- read.csv(textConnection(csv_text),sep = ";")
+  print("Data downloaded.")
+  return(df)
+#}
 
 
 
