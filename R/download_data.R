@@ -64,7 +64,35 @@ data_ppa_piiripunktid <- function() {
   return(df)
 }
 
+#' Riiklik alkoholiregister
+#' @title Riiklik alkoholiregister
+#' @name data_agri_alkoholiregister
+#' @description Riigis käideldavate alkoholitoodete register
+#' @param none
+data_agri_alkoholiregister <- function() {
+    require(rvest)
+    print("Downloading data...")
+    x <- read_xml("https://alkoreg.agri.ee/avaandmed")
+    print("Data downloaded.")
 
+    # Extract features from all products into vectors
+    print("Converting XML into data frame...")
+    products <- xml_children(x)
+    regEntryDate <- as.Date(xml_text(xml_find_all(products, ".//regEntryDate")))
+    productClass <- as.factor(xml_text(xml_find_all(products, ".//productClass")))
+    productName <- xml_text(xml_find_all(products, ".//productName"))
+    producerName <- xml_text(xml_find_all(products, ".//producerName"))
+    producerCountry <- as.factor(xml_text(xml_find_all(products, ".//producerCountry")))
+    applicantName <- as.factor(xml_text(xml_find_all(products, ".//applicantName")))
+    capacity <- xml_text(xml_find_all(products, ".//capacity"))
+    ethanolRate <- as.numeric(xml_text(xml_find_all(products, ".//ethanolRate")))
+    print("Done converting.")
+
+    # Combine vectors into data frame
+    df <- data.frame(regEntryDate, productClass, productName, producerName,
+                     producerCountry, applicantName, capacity, ethanolRate)
+    return(df)
+}
 
 
 
