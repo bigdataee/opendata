@@ -76,7 +76,7 @@ data_agri_alkoholiregister <- function() {
     cat("done.\n")
 
     # Extract features from all products into vectors
-    print("Converting XML into data frame...")
+    cat("Converting XML into data frame...")
     products <- xml_children(x)
     regEntryDate <- as.Date(xml_text(xml_find_all(products, ".//regEntryDate")))
     productClass <- as.factor(xml_text(xml_find_all(products, ".//productClass")))
@@ -86,11 +86,12 @@ data_agri_alkoholiregister <- function() {
     applicantName <- as.factor(xml_text(xml_find_all(products, ".//applicantName")))
     capacity <- xml_text(xml_find_all(products, ".//capacity"))
     ethanolRate <- as.numeric(xml_text(xml_find_all(products, ".//ethanolRate")))
-    print("Done converting.")
 
     # Combine vectors into data frame
     df <- data.frame(regEntryDate, productClass, productName, producerName,
                      producerCountry, applicantName, capacity, ethanolRate)
+    cat("done.\n")
+
     return(df)
 }
 
