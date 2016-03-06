@@ -1,15 +1,15 @@
-# opendata.ee
+# Estonian Open Data
 
-Lihtne R-i pakett, mis võimaldab lihtsalt Eesti Open data andmeid R-i keskkonda koguda
+A simple R library that allows to effortlessly load data from [opendata.riik.ee](opendata.riik.ee).
 
-## Installeerimiseks
+## Installation
 
 ```
 library("devtools")
-install_github("laurii/opendata.ee")
+install_github("bigdataee/opendata")
 ```
 
-## Näide
+## Example
 
 ```
 library(opendata.ee)
