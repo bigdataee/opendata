@@ -1,6 +1,6 @@
 # Estonian Open Data
 
-A simple R library that allows to effortlessly load data from [opendata.riik.ee](opendata.riik.ee).
+A simple R library that allows to effortlessly load data from [opendata.riik.ee](http://opendata.riik.ee).
 
 ## Installation
 
@@ -26,5 +26,3 @@ p + geom_bar() + coord_flip() +
     ylab("Arv") +
     ggtitle("Struktuuritoetuste saajate arv juriidilise staatuse kaupa")
 ```
-
-
