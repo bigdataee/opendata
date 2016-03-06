@@ -17,7 +17,7 @@ library(ggplot2)
 
 df <- data_fin_struktuuritoetus()
 
-View(df2)
+View(df)
 
 # Struktuuritoetuste saajate arv jur. staatuse kaupa
 p <- ggplot(df, aes(factor(toetuse_saaja_juriidiline_vorm)))
