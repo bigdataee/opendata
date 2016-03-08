@@ -68,31 +68,34 @@ data_ppa_piiripunktid <- function() {
 #' @title Riiklik alkoholiregister
 #' @name data_agri_alkoholiregister
 #' @description Riigis käideldavate alkoholitoodete register
-#' @param none
-data_agri_alkoholiregister <- function() {
+#' @param convert_to_df Convert the downloaded XML to a data frame?
+data_agri_alkoholiregister <- function(convert_to_df=True) {
     require(rvest)
     cat("Downloading data... ")
     x <- read_xml("https://alkoreg.agri.ee/avaandmed")
     cat("done.\n")
 
-    # Extract features from all products into vectors
-    cat("Converting XML into data frame...")
-    products <- xml_children(x)
-    regEntryDate <- as.Date(xml_text(xml_find_all(products, ".//regEntryDate")))
-    productClass <- as.factor(xml_text(xml_find_all(products, ".//productClass")))
-    productName <- xml_text(xml_find_all(products, ".//productName"))
-    producerName <- xml_text(xml_find_all(products, ".//producerName"))
-    producerCountry <- as.factor(xml_text(xml_find_all(products, ".//producerCountry")))
-    applicantName <- as.factor(xml_text(xml_find_all(products, ".//applicantName")))
-    capacity <- xml_text(xml_find_all(products, ".//capacity"))
-    ethanolRate <- as.numeric(xml_text(xml_find_all(products, ".//ethanolRate")))
+    if(convert_to_df) {
+        # Extract features from all products into vectors
+        cat("Converting XML into data frame...")
+        products <- xml_children(x)
+        regEntryDate <- as.Date(xml_text(xml_find_all(products, ".//regEntryDate")))
+        productClass <- as.factor(xml_text(xml_find_all(products, ".//productClass")))
+        productName <- xml_text(xml_find_all(products, ".//productName"))
+        producerName <- xml_text(xml_find_all(products, ".//producerName"))
+        producerCountry <- as.factor(xml_text(xml_find_all(products, ".//producerCountry")))
+        applicantName <- as.factor(xml_text(xml_find_all(products, ".//applicantName")))
+        capacity <- xml_text(xml_find_all(products, ".//capacity"))
+        ethanolRate <- as.numeric(xml_text(xml_find_all(products, ".//ethanolRate")))
 
-    # Combine vectors into data frame
-    df <- data.frame(regEntryDate, productClass, productName, producerName,
-                     producerCountry, applicantName, capacity, ethanolRate)
-    cat("done.\n")
-
-    return(df)
+        # Combine vectors into data frame
+        df <- data.frame(regEntryDate, productClass, productName, producerName,
+                         producerCountry, applicantName, capacity, ethanolRate)
+        cat("done.\n")
+        return(df)
+    } else {
+        return(x)
+    }
 }
 
 
