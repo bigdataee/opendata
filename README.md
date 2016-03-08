@@ -1,15 +1,15 @@
-# opendata.ee
+# Estonian Open Data
 
-Lihtne R-i pakett, mis võimaldab lihtsalt Eesti Open data andmeid R-i keskkonda koguda
+A simple R library that allows to effortlessly load data from [opendata.riik.ee](http://opendata.riik.ee).
 
-## Installeerimiseks
+## Installation
 
 ```
 library("devtools")
-install_github("laurii/opendata.ee")
+install_github("bigdataee/opendata")
 ```
 
-## Näide
+## Example
 
 ```
 library(opendata.ee)
@@ -17,7 +17,7 @@ library(ggplot2)
 
 df <- data_fin_struktuuritoetus()
 
-View(df2)
+View(df)
 
 # Struktuuritoetuste saajate arv jur. staatuse kaupa
 p <- ggplot(df, aes(factor(toetuse_saaja_juriidiline_vorm)))
@@ -26,5 +26,3 @@ p + geom_bar() + coord_flip() +
     ylab("Arv") +
     ggtitle("Struktuuritoetuste saajate arv juriidilise staatuse kaupa")
 ```
-
-
