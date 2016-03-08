@@ -98,5 +98,22 @@ data_agri_alkoholiregister <- function(convert_to_df=True) {
     }
 }
 
+#' Rahvastikuregistri nimed
+#' @title Rahvastikuregistri nimed
+#' @name data_sisemin_rahvastikuregistri_nimed
+#' @description Andmestik kõigi rahvastikuregistri nimedega
+#' @param none
+data_sisemin_rahvastikuregistri_nimed <- function() {
+    library(readxl)
+    # Download the file into a temporary file locally
+    filename <- paste0(tempfile(), ".xlsx")
+    file_url <- "https://opendata.riik.ee/dataset/7b363ff9-fbff-4473-a057-7c95c7f0fe0d/resource/c604ac34-c135-48ce-a514-d81ab41d242b/download/andmestikrahvastikuregistrinimedega.xlsx"
+    cat("Downloading data... ")
+    download.file(file_url, filename, method="libcurl")
+    cat("done.\n")
 
+    # Read data from the temporary file into a data.frame()
+    df <- read_excel(filename, col_names=c("Eesnimi"))
 
+    return(df)
+}
